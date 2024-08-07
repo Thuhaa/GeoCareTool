@@ -20,12 +20,12 @@ setup(
         'concurrent.futures; python_version < "3.2"',  # for older Python versions
         'glob2'  # if using glob module in Python 2
     ],
-    author='Your Name',
-    author_email='your.email@example.com',
-    description='A tool for web scraping Google Places and cleaning data',
+    author='Daniela de los Santos',
+    author_email='daniela.de.los.santos@undp.org',
+    description='Care Georeferencing Tool - UNDP LAC',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/yourusername/GeoCareTool',
+    url='https://github.com/danidlsa/GeoCareTool',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
