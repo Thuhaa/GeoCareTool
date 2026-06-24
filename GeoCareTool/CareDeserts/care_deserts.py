@@ -246,7 +246,7 @@ def build_care_desert_indicator(
 ) -> gpd.GeoDataFrame:
     out = gdf.copy()
     out[out_col] = (out[low_acc_col] * out[high_demand_col]).astype(int)
-    out[out_label_col] = np.where(out[out_col] == 1, label, None)
+    out[out_label_col] = np.where(out[out_col] == 1, label, np.nan)
     return out
 
 

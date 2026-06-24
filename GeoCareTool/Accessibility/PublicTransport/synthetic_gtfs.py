@@ -271,7 +271,7 @@ def merge_gtfs_tables(a: dict, b: dict) -> dict:
         if k in a and k in b:
             df = pd.concat([a[k], b[k]], ignore_index=True)
         else:
-            df = (a.get(k) or b.get(k)).copy()
+            df = (a[k] if k in a else b[k]).copy()
         if k in dedup_keys:
             df = df.drop_duplicates(dedup_keys[k])
         out[k] = df

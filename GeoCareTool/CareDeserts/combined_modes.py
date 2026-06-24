@@ -62,16 +62,16 @@ def segment_pt_travel_time(
 
     nearest = (
         ttm.assign(**{ttm_from_col: ttm[ttm_from_col].astype(str)})
-           .groupby(ttm_from_col, as_index=False)[ttm_time_col]
-           .min()
+           .groupby(ttm_from_col, as_index=False)
+           .agg({ttm_time_col: "min"})
            .rename(columns={ttm_time_col: "_tt_raw"})
     )
     joined = pts[[point_id_col, segment_id_col]].merge(
         nearest, left_on=point_id_col, right_on=ttm_from_col, how="left"
     )
     out = (
-        joined.groupby(segment_id_col, as_index=False)["_tt_raw"]
-              .min()
+        joined.groupby(segment_id_col, as_index=False)
+              .agg({"_tt_raw": "min"})
               .rename(columns={"_tt_raw": "tt_pt_min"})
     )
     out["tt_pt_min"] = out["tt_pt_min"].fillna(unreachable_value)
@@ -108,8 +108,8 @@ def classify_combined_deserts(
 
     out["absolute_desert"] = (no_walk & no_pt & high_dem).astype(int)
     out["pt_reachable"] = (no_walk & ~no_pt & high_dem).astype(int)
-    out["absolute_desert_label"] = np.where(out["absolute_desert"] == 1, "Absolute desert", None)
-    out["pt_reachable_label"] = np.where(out["pt_reachable"] == 1, "PT-reachable only", None)
+    out["absolute_desert_label"] = np.where(out["absolute_desert"] == 1, "Absolute desert", np.nan)
+    out["pt_reachable_label"] = np.where(out["pt_reachable"] == 1, "PT-reachable only", np.nan)
     return out
 
 

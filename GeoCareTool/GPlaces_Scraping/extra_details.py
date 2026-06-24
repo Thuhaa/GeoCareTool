@@ -143,7 +143,7 @@ def _parse_weekday_text(weekday_text: Sequence[str]) -> dict:
     """Turn ``opening_hours.weekday_text`` (a list of 7 strings like
     ``"Monday: 9:00 AM – 5:00 PM"``) into 7 named columns + a one-cell summary
     matching the R script's ``variable_horas`` (days joined by ``" | "``)."""
-    by_day = {f"hours_{d.lower()}": None for d in DAYS}
+    by_day: dict[str, str | None] = {f"hours_{d.lower()}": None for d in DAYS}
     for line in weekday_text or []:
         for d in DAYS:
             if line.startswith(d):

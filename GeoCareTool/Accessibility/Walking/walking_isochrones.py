@@ -96,7 +96,7 @@ def _configure_osmnx(cfg: IsochroneConfig) -> None:
     ox.settings.use_cache = True
     if cfg.cache_dir is not None:
         ox.settings.cache_folder = str(cfg.cache_dir)
-    ox.settings.timeout = 300
+    ox.settings.requests_timeout = 300
     ox.settings.log_console = False
 
 

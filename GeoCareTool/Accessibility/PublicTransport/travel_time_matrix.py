@@ -94,8 +94,8 @@ def nearest_destination(
 ) -> pd.DataFrame:
     """Collapse a TTM to one row per origin: minimum travel time."""
     return (
-        ttm.groupby(from_col, as_index=False)[time_col]
-           .min()
+        ttm.groupby(from_col, as_index=False)
+           .agg({time_col: "min"})
            .rename(columns={time_col: "tt_min"})
     )
 
@@ -117,7 +117,7 @@ def aggregate_by_segment(
         nearest, left_on=point_id_col, right_on=from_col, how="left"
     )
     return (
-        joined.groupby(segment_id_col, as_index=False)["tt_min"]
-              .min()
+        joined.groupby(segment_id_col, as_index=False)
+              .agg({"tt_min": "min"})
               .rename(columns={"tt_min": "tt_pt_min"})
     )
