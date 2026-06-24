@@ -4,11 +4,21 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pandas-stubs = "~=3.0.3"
-ipykernel = "*"
+pandas = "*"
+numpy = "*"
+geopandas = "*"
+shapely = "*"
+osmnx = "*"
+networkx = "*"
+geopy = "*"
+matplotlib = "*"
+contextily = "*"
+googlemaps = "*"
+requests = "*"
+unidecode = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.12"
-python_full_version = "3.12.3"
