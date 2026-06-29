@@ -36,11 +36,11 @@ EXTRAS = {
         "ruff>=0.1",
     ],
 }
-# Convenience: `pip install GeoCareTool[all]` pulls everything
+# Convenience: `pip install src[all]` pulls everything
 EXTRAS["all"] = sorted({pkg for group in EXTRAS.values() for pkg in group})
 
 setup(
-    name="GeoCareTool",
+    name="src",
     version="0.3.0",
     packages=find_packages(),
     install_requires=CORE_REQUIREMENTS,
