@@ -53,11 +53,11 @@ Pre-run cost estimate. Returns a dict with `requests_min / requests_expected / r
 **Example**
 
 ```python
-from GeoCareTool.GPlaces_Scraping.scraper import estimate_cost, print_cost_estimate
+from GeoCareTool.google.scraper import estimate_cost, print_cost_estimate
 
 est = estimate_cost(
     num_grid_points=len(grid),
-    keywords=KEYWORDS,            # dict-of-lists is accepted
+    keywords=KEYWORDS,  # dict-of-lists is accepted
     cost_per_request=0.032,
     pagination_factor=1.5,
     free_tier=5000,
@@ -120,7 +120,7 @@ Default fetch (Basic + Contact) = **$0.020/request**.
 **Example**
 
 ```python
-from GeoCareTool.GPlaces_Scraping.extra_details import (
+from GeoCareTool.google.extra_details import (
     fetch_extra_details, estimate_details_cost, print_details_cost_estimate,
 )
 

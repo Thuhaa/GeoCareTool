@@ -231,7 +231,7 @@ def make_gtfs_tables(
     }])
 
     feed_info = pd.DataFrame([{
-        "feed_publisher_name": "GeoCareTool synthetic GTFS",
+        "feed_publisher_name": "src synthetic GTFS",
         "feed_publisher_url": cfg.agency_url,
         "feed_lang": cfg.lang,
         "feed_version": f"synthetic_{mode}_v1",

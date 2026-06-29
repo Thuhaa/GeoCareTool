@@ -111,7 +111,7 @@ def add_high_demand_flag(
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Accessibility
+# accessibility
 # ─────────────────────────────────────────────────────────────────────────────
 
 def _ensure_same_crs(left: gpd.GeoDataFrame, right: gpd.GeoDataFrame):

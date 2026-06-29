@@ -28,7 +28,7 @@ Each step is its own module that can be called on its own. The end-to-end demo i
 ## Installation
 
 ```bash
-pip install git+https://github.com/yourusername/GeoCareTool.git
+pip install git+https://github.com/Thuhaa/GeoCareTool.git
 ```
 
 You'll also need a Google Cloud project with the **Places API** enabled and an API key. Either put it in a `.env` file next to your notebook:
@@ -46,11 +46,11 @@ export GOOGLE_API_KEY="AIza..."
 ## Quick start
 
 ```python
-from GeoCareTool.GPlaces_Scraping.scraper import (
+from GeoCareTool.google.scraper import (
     generate_grid, fetch_places, estimate_cost, print_cost_estimate,
 )
 from GeoCareTool.DataCleaning.preprocessing import preprocess
-from GeoCareTool.GPlaces_Scraping.extra_details import fetch_extra_details
+from GeoCareTool.google.extra_details import fetch_extra_details
 
 # §1 — Grid + cost estimate + scrape
 grid = generate_grid(min_lat, max_lat, min_lng, max_lng, step=1500)
